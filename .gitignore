@@ -403,3 +403,17 @@ data/ontologies/NC-DCC/README.md
 use_ml_3/saved_model.pb
 use_ml_3/variables/variables.data-00000-of-00001
 use_ml_3/variables/variables.index
+processing/error_list.json
+model/encoded_segments.json
+model/sat_segments_dict.json
+model/segment_encodings.json
+model/segments_dict.json
+processing/__pycache__/nlp.cpython-39.pyc
+processing/__pycache__/packages.cpython-39.pyc
+processing/__pycache__/process_ontologies.cpython-39.pyc
+processing/__pycache__/process_sections.cpython-39.pyc
+processing/__pycache__/semantic.cpython-39.pyc
+processing/__pycache__/nlp.cpython-39.pyc
+processing/__pycache__/packages.cpython-39.pyc
+processing/__pycache__/process_ontologies.cpython-39.pyc
+processing/__pycache__/semantic.cpython-39.pyc

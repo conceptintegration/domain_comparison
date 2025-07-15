@@ -18,14 +18,23 @@ This process DOES NOT segment constitution sections. Therefore, segment refers t
 
 from packages import *
 
-def process(documents_dict,config,encoder):
+def process(config):
 
+    encoder = hub.load(config['nlp']['encoder_path'] + config['nlp']['encoder'])
     error_list = []
+
+    # Use only in-force constitutions
+    with open(config['constitutions']['constitutions_list'], 'r') as f:
+        const_list = json.load(f)
+        f.close() 
+    # Build dictionary of in-force constitutions
+    const_dict = {d['id']:d for d in const_list if d['in_force'] == True}
 
     # Key is a segment identifier, value is a text segment
     segments_dict = {}
+    sat_segments_dict = {}
 
-    xml_dir = config['constitutions_path']
+    xml_dir = config['constitutions']['path']
     _, _, files = next(os.walk(xml_dir))
     files = [f for f in files if not f[0] == '.']
     for i, file in enumerate(files):
@@ -34,14 +43,14 @@ def process(documents_dict,config,encoder):
         sys.stdout.flush()
 
         constitution_id = os.path.splitext(file)[0]
-        if not constitution_id in documents_dict:
+        if not constitution_id in const_dict:
             continue
 
         xml_file = xml_dir + file
         tree = etree.parse(xml_file)
 
         results = []
-        for type_ in config['element_types']:
+        for type_ in config['constitutions']['element_types']:
             search_str = ".//*[@type='" + type_ + "']"
             results.extend(tree.findall(search_str))
 
@@ -72,6 +81,28 @@ def process(documents_dict,config,encoder):
                         segments_dict[segment_id]['text'] = text.strip()
 
 
+        # Process SAT
+        for elem in results:
+            segment_id = constitution_id + '/' + elem.get('uri').split('/')[1]
+            metadata = elem.findall('metadata')
+            if len(metadata) > 0:
+            # Section may have topics
+                metadata_elem = elem.findall('metadata')
+                topics_elem = metadata_elem[0].findall('topics')
+                if len(topics_elem) > 0:
+                    # Check that we don't already have the topic we are adding
+                    # Compile existing topics for the element
+                    for topic_elem in topics_elem:
+                        for topic in topic_elem:
+                            topic_id = topic.text.split('/')[-1]
+                            if topic_id in sat_segments_dict:
+                                sat_segments_dict[topic_id].append(segment_id)
+                            else:
+                                sat_segments_dict[topic_id] = [segment_id]
+
+        if i == 2:
+            break
+
     sys.stdout.write("\r")
     sys.stdout.flush()
 
@@ -99,5 +130,5 @@ def process(documents_dict,config,encoder):
         segment_encodings.extend(np.array(encodings).tolist())
     print('Finished split loop')
         
-    return segments_dict,segment_encodings,encoded_segments
+    return segments_dict,segment_encodings,encoded_segments,sat_segments_dict
 
