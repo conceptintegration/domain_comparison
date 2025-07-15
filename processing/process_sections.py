@@ -100,9 +100,6 @@ def process(config):
                             else:
                                 sat_segments_dict[topic_id] = [segment_id]
 
-        if i == 2:
-            break
-
     sys.stdout.write("\r")
     sys.stdout.flush()
 
@@ -118,17 +115,41 @@ def process(config):
     print('Encoding:',len(segments_text_list))
 
     indices = list(range(0,len(segments_text_list)))
-    split_list = np.array_split(indices,100)
+    split_list = np.array_split(indices,1000)
     print('Split list')
     segment_encodings = []
     print('Starting split loop…')
     for i,l in enumerate(split_list):
-        #print('Encoding',str(i + 1),'of 100')
+        msg = '\rEncoding ' + str(i + 1) + ' of 1000'
+        sys.stdout.write(msg)
+        sys.stdout.flush()
+        #print('Encoding',str(i + 1),'of 1000')
         split = [segments_text_list[index] for index in list(l)]
         encodings = encoder(split)
         assert(len(encodings) == len(split))
         segment_encodings.extend(np.array(encodings).tolist())
+
+    sys.stdout.write("\r")
+    sys.stdout.flush()
+
     print('Finished split loop')
-        
-    return segments_dict,segment_encodings,encoded_segments,sat_segments_dict
+
+    model_path = config['constitutions']['model_path']
+    model_filename = model_path + 'segments_dict.json'
+    with open(model_filename, 'w') as f:
+        json.dump(segments_dict, f)
+        f.close()
+    model_filename = model_path + 'segment_encodings.json'
+    with open(model_filename, 'w') as f:
+        json.dump(segment_encodings, f)
+        f.close()
+    model_filename = model_path + 'encoded_segments.json'
+    with open(model_filename, 'w') as f:
+        json.dump(encoded_segments, f)
+        f.close()
+    model_filename = model_path + 'sat_segments_dict.json'
+    with open(model_filename, 'w') as f:
+        json.dump(sat_segments_dict, f)
+        f.close()
+    print('Finished processing constitutions')
 

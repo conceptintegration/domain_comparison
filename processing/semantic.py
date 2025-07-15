@@ -6,7 +6,7 @@ __copyright__   = 'Copyright 2024, Roy Gardner and Sally Gardner'
 
 from packages import *
 
-def encode_topics(ont_label,topics_dict,config,encoder,split_size=80):
+def encode_topics(ont_label,topics_dict,model_path,encoder,split_size=80):
     # Encode
     print('Encoding topics…')
     encoded_topics = list(topics_dict.keys())
@@ -26,12 +26,12 @@ def encode_topics(ont_label,topics_dict,config,encoder,split_size=80):
     sys.stdout.write('\r')
     sys.stdout.flush()
 
-    filename = config['model_path'] + ont_label + '_topic_encodings.json'
+    filename = model_path + ont_label + '_topic_encodings.json'
     with open(filename, 'w') as f:
         json.dump(topic_encodings, f)
         f.close()
 
-    filename = config['model_path'] + ont_label + '_encoded_topics.json'
+    filename = model_path + ont_label + '_encoded_topics.json'
     with open(filename, 'w') as f:
         json.dump(encoded_topics, f)
         f.close()
@@ -39,7 +39,7 @@ def encode_topics(ont_label,topics_dict,config,encoder,split_size=80):
 
     return topic_encodings
 
-def encode_segments(segments_dict,config,encoder,split_size=80):
+def encode_segments(segments_dict,model_path,encoder,split_size=80):
     # Encode
     print('Encoding segments…')
     encoded_segments = list(segments_dict.keys())
@@ -59,12 +59,12 @@ def encode_segments(segments_dict,config,encoder,split_size=80):
     sys.stdout.write('\r')
     sys.stdout.flush()
 
-    filename = config['model_path'] + 'segment_encodings.json'
+    filename = model_path + 'segment_encodings.json'
     with open(filename, 'w') as f:
         json.dump(segment_encodings, f)
         f.close()
 
-    filename = config['model_path'] + 'encoded_segments.json'
+    filename = model_path + 'encoded_segments.json'
     with open(filename, 'w') as f:
         json.dump(encoded_segments, f)
         f.close()
@@ -72,22 +72,22 @@ def encode_segments(segments_dict,config,encoder,split_size=80):
 
     return segment_encodings
 
-def build_topic_segments_matrix(ont_label,topic_encodings,segment_encodings,config):
+def build_topic_segments_matrix(ont_label,topic_encodings,segment_encodings,model_path):
     print('Building topic-segment matrix…')
     matrix = cdist(topic_encodings,segment_encodings,ad.angular_distance)
     print('Serialising matrix…')
-    filename = config['model_path'] + ont_label + '_topic_segment_matrix.json'
+    filename = model_path + ont_label + '_topic_segment_matrix.json'
     with open(filename, 'w') as f:
         json.dump(np.array(matrix).tolist(), f)
         f.close()
 
-def build_segment_segments_matrix(segment_encodings,config):
+def build_segment_segments_matrix(segment_encodings,model_path):
     print('Building segment-segment matrix…')
     n = len(segment_encodings)
     matrix = np.zeros((n, n))
     row,col = np.triu_indices(n,1)
     matrix[row,col] = pdist(segment_encodings,ad.angular_distance)
-    filename = config['model_path'] + 'segment_matrix.json'
+    filename = model_path + 'segment_matrix.json'
     with open(filename, 'w') as f:
         json.dump(np.array(matrix).tolist(), f)
         f.close()
