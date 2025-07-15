@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 __author__      = 'Roy Gardner'
-__copyright__   = 'Copyright 2024, Roy Gardner and Sally Gardner'
+__copyright__   = 'Copyright 2025, Roy Gardner and Sally Gardner'
 
 
 """
