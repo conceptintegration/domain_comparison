@@ -20,7 +20,7 @@ import process_ontologies
 
 def main(config):
 
-    #config['constitutions']['function'].process(config)
+    config['constitutions']['function'].process(config)
     config['ontologies']['function'].process(config)
 
 

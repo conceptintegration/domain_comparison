@@ -8,7 +8,7 @@ from packages import *
 
 def initialise(exclusion_list=[]):
     model_path = '../model/'
-    use_path = '../use-4/'
+    use_path = '../use_ml_3/'
     encoder = hub.load(use_path)
     print('Initialisation started…')
 
