@@ -20,6 +20,7 @@ This repository focuses on the implementation of this method as applied to the C
 3. Clone or download this repository
 4. Navigate to the repository directory and install required packages:
    ```
+   pip install "pip<24.1"
    pip install -r required_packages.txt
    ```
 5. Launch Jupyter Notebook:
