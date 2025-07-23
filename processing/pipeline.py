@@ -7,9 +7,7 @@ __copyright__   = 'Copyright 2025, Roy Gardner and Sally Gardner'
 
 """
 
-Takes a reference corpus (in our case CCP) and some ontologies.
-
-For each ontology generates a topic-segment similarity matrix.
+Set configuration and run processors.
 
 """
 from packages import *
