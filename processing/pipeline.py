@@ -28,7 +28,7 @@ if __name__ == '__main__':
     config = {}
     config['nlp'] = {}
     config['nlp']['encoder_path'] = '../'
-    config['nlp']['encoder'] = 'use_ml_3'
+    config['nlp']['encoder'] = 'use-4'
 
     config['constitutions'] = {} 
     config['constitutions']['function'] = process_sections
@@ -42,6 +42,5 @@ if __name__ == '__main__':
     config['ontologies']['function'] = process_ontologies
     config['ontologies']['model_path'] = '../model/'
     config['ontologies']['path'] = '../data/ontologies/'
-    config['ontologies']['ontology_files'] = ['CCP-FACET/ontology.csv','IDEA-GLO/ontology.csv','NC-DCC/ontology.csv']
 
     main(config)
