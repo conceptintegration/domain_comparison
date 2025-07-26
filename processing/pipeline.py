@@ -42,5 +42,6 @@ if __name__ == '__main__':
     config['ontologies']['function'] = process_ontologies
     config['ontologies']['model_path'] = '../model/'
     config['ontologies']['path'] = '../data/ontologies/'
+    config['ontologies']['reference'] = 'CCP-FACET' # reference ontology label
 
     main(config)

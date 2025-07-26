@@ -45,6 +45,7 @@ def process(config):
         f.close() 
     
     ontologies_dict = {}
+    reference_ont_label = config['ontologies']['reference']
 
     _, dirs,_ = next(os.walk(config['ontologies']['path']))
     # Using the directory name as the ontology label
@@ -58,7 +59,13 @@ def process(config):
             header = list(next(reader))
             data = [row for row in reader]
             f.close()
+            
             ontologies_dict[ont_label] = {}
+            if ont_label == reference_ont_label:
+                ontologies_dict[ont_label]['reference'] = True
+            else:
+                ontologies_dict[ont_label]['reference'] = False
+
             for field in header:
                 ontologies_dict[ont_label][field] = data[0][header.index(field)]
 
