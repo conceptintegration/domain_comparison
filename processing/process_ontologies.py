@@ -49,6 +49,7 @@ def process(config):
 
     _, dirs,_ = next(os.walk(config['ontologies']['path']))
     # Using the directory name as the ontology label
+    dirs = sorted(dirs)
     for ont_label in dirs:
         ont_path = config['ontologies']['path'] + os.sep + ont_label + os.sep
         ontology_file = ont_path + 'ontology.csv'
@@ -59,7 +60,7 @@ def process(config):
             header = list(next(reader))
             data = [row for row in reader]
             f.close()
-            
+
             ontologies_dict[ont_label] = {}
             if ont_label == reference_ont_label:
                 ontologies_dict[ont_label]['reference'] = True
@@ -79,6 +80,8 @@ def process(config):
         topics_dict = {}
         for i,row in enumerate(ont_data):
             topic_id = str(row[ont_header.index('Key')]).strip()
+            if len(topic_id) == 0:
+                continue
             topics_dict[topic_id] = {}
             for field in ont_header:
                 if field == 'Key' or len(field)==0:
