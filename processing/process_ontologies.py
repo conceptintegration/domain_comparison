@@ -8,8 +8,18 @@ __copyright__   = 'Copyright 2025, Roy Gardner and Sally Gardner'
 """
 Generates ontology data model files in the ../model folder:
 
-CCP-FACET
-IDEA-GLO
+FJC-IDB: Concatenated Federal Judicial Center databases:
+    -Federal Judicial Center,Appeals Integrated Database
+    -Federal Judicial Center,Bankruptcy Petition Newstats Snapshots Database
+    -Federal Judicial Center,Civil Integrated Database
+    - Federal Judicial Center,Criminal Integrated Database
+GLOBALCIT-GLO: Global Citizenship Observatory, Glossary on Citizenship and Electoral Rights
+IDEA-DT: International IDEA Democracy Tracker
+IDEA-GLO: International IDEA Database Glossary
+JUON-CPSD: Andreas Juon,Constitutional Power-Sharing Dataset
+STROM-IDC: Scott Gates, Benjamin A. T. Graham, and Håvard Strand, Inclusion, Dispersion, and Constraint Dataset
+
+For further details see the metadata CSV files in data/ontolotogies/
 
 Each ontology has the following files:
 

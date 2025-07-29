@@ -6,7 +6,32 @@ __copyright__   = 'Copyright 2023-2024, Roy and Sally Gardner'
 
 from packages import *
 
+def popup(text):
+    display(Javascript("alert('{}')".format(text)))
+
+def alert(msg):
+    from IPython.display import Javascript
+
+    def popup(text):
+        display(Javascript("alert('{}')".format(text)))
+    popup(msg)
+
 def discovery_interface(choice_dict,ontologies_dict,def_threshold):
+    
+    import re
+
+    def sanitize_text(text,max_length=16):
+        """
+        Sanitise and/or truncate topic label or description.
+        Returns sanitised text.
+        """        
+        # Limit length
+        text = text[:max_length]
+        # Escape HTML
+        text = html.escape(text)
+        # Remove any remaining problematic characters
+        text = re.sub(r'[<>"\']', '',text)
+        return text.strip()
 
     ont_list = []
     for k,v in ontologies_dict.items():
@@ -22,6 +47,18 @@ def discovery_interface(choice_dict,ontologies_dict,def_threshold):
         choice_dict['threshold'] = threshold_slider.value
         choice_dict['reference'] = reference_ontology
         choice_dict['comparison'] = ont_select.value.split('/')[0].strip()
+        choice_dict['export'] = export_checkbox.value
+        export_prefix = '' 
+        if export_checkbox.value == True:
+            export_prefix = export_prefix_text.value
+            if len(export_prefix.strip()) == 0 or export_prefix == None:
+                alert('Please enter an export file prefix')
+                return
+        sanitised_prefix = sanitize_text(export_prefix.strip(),max_length=16)
+        if sanitised_prefix != export_prefix.strip():
+            alert_text = 'The export file prefix was sanitised. Please check the value: ' + sanitised_prefix
+            popup(alert_text)
+        choice_dict['export_prefix'] = sanitised_prefix 
 
     ont_select = widgets.Dropdown(
         options=ont_list,
@@ -45,6 +82,20 @@ def discovery_interface(choice_dict,ontologies_dict,def_threshold):
         layout=Layout(width='800px')
     )
 
+    export_checkbox = widgets.Checkbox(
+        value=False,
+        description='Export results',
+        disabled=False,
+        indent=True    
+    )
+    export_prefix_text = widgets.Text(
+        layout={'width': 'initial'},
+        value='',
+        placeholder='Enter export file prefix (max 16 characters)',
+        description='Export prefix:',
+        disabled=False,
+        continuous_update=False
+    )
 
     apply_button = widgets.Button(
         description='Apply Choices',
@@ -67,6 +118,8 @@ def discovery_interface(choice_dict,ontologies_dict,def_threshold):
     display(ont_select)
     display(threshold_label)
     display(threshold_slider)
+    display(export_checkbox)
+    display(export_prefix_text)
     display(apply_button)
     
 
@@ -79,6 +132,8 @@ def init_discovery_choice_dict():
     discovery_choice_dict['threshold'] = 0
     discovery_choice_dict['reference'] = ''
     discovery_choice_dict['comparison'] = ''
+    discovery_choice_dict['export'] = False
+    discovery_choice_dict['export_prefix'] = ''
     return discovery_choice_dict
 
 
