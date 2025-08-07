@@ -136,6 +136,141 @@ def init_discovery_choice_dict():
     discovery_choice_dict['export_prefix'] = ''
     return discovery_choice_dict
 
+def mapping_threshold_interface(choice_dict,def_threshold):
+    
+    def apply(change):
+        choice_dict['threshold'] = threshold_slider.value
+    
+    threshold_slider = widgets.FloatSlider(
+        value=def_threshold,
+        min=0.58,
+        max=0.9,
+        step=0.01,
+        description='Threshold:',
+        disabled=False,
+        continuous_update=False,
+        orientation='horizontal',
+        readout=True,
+        readout_format='.2f',
+        layout=Layout(width='800px')
+    )
+
+    threshold_label = widgets.Label(
+        value='SET THE SEMANTIC SIMILARITY THRESHOLD:',
+    )
+    
+    apply_button = widgets.Button(
+        description='Apply',
+        disabled=False,
+        button_style='',
+        tooltip='Click to apply threshold'
+    )
+
+    display(threshold_label)
+    display(threshold_slider)    
+    display(apply_button)
+
+    apply_button.on_click(apply)
+    out = widgets.Output()
+    display(out)
+
+def init_mapping_threshold_choice_dict():
+    discovery_choice_dict = {}
+    discovery_choice_dict['threshold'] = 0
+    return discovery_choice_dict
+
+
+def query_interface(choice_dict,model_dict):
+    
+    ont_labels = sorted(list(model_dict['ontologies_dict'].keys()))
+
+    def apply(change):
+        # Choices as indices into the ont_labels list
+        if len(select.value) < 2:
+            alert_text = 'Please select at least two ontologies.'
+            popup(alert_text)
+            return
+            
+        choices = [ont_labels.index(v) for v in select.value]
+        choice_dict['choices'] = choices
+        return
+    
+    select = widgets.SelectMultiple(
+        options=ont_labels,
+        value=[],
+        rows=len(ont_labels),
+        description='Ontologies',
+        disabled=False
+    )
+    
+    apply_button = widgets.Button(
+        description='Apply',
+        disabled=False,
+        button_style='',
+        tooltip='Click to apply threshold'
+    )
+
+    display(select)
+    display(apply_button)
+
+    apply_button.on_click(apply)
+    out = widgets.Output()
+    display(out)
+
+def init_query_choice_dict():
+    query_choice_dict = {}
+    query_choice_dict['choices'] = []
+    return query_choice_dict
+
+def ont_count_interface(choice_dict,model_dict):
+    
+    ont_labels = sorted(list(model_dict['ontologies_dict'].keys()))
+
+    def apply(change):
+        choice_dict['count'] = int_slider.value
+        choice_dict['exact'] = radio.value
+        return
+    
+    int_slider = widgets.IntSlider(
+        value=2,
+        min=2,
+        max=len(ont_labels),
+        step=1,
+        description='Ontologies:',
+        disabled=False,
+        continuous_update=False,
+        orientation='horizontal',
+        readout=True,
+        readout_format='d'
+    )   
+    
+    radio = widgets.Checkbox(
+        value=True,
+        description='Exact:',
+        disabled=False,
+        indent=False
+    )
+    
+    apply_button = widgets.Button(
+        description='Apply',
+        disabled=False,
+        button_style='',
+        tooltip='Click to apply threshold'
+    )
+
+    display(int_slider)
+    display(radio)
+    display(apply_button)
+
+    apply_button.on_click(apply)
+    out = widgets.Output()
+    display(out)
+
+def init_ont_count_dict():
+    ont_count_dict = {}
+    ont_count_dict['count'] = 2
+    ont_count_dict['exact'] = True
+    return ont_count_dict
 
 def initialise(model_path,exclusion_list=[]):
     print('Initialisation started…')
