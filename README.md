@@ -1,6 +1,8 @@
 # Ontology-Corpus-Comparison Topic Discovery
 
-This repository focuses on the implementation of this method as applied to the Comparative Constitutions Project corpus of national constitutions. 
+The methodology measures the semantic similarities between topics in a set of ontologies and sections (referred to as segments) of the corpus of national constitutions.
+
+Topics that are similar to a given segment are regarded as coding the meaning of the segment. If the set of topics similar to a segment belong to more than one ontology, then the ontologies are aligned conceptually and we have discovered a conceptual mapping between ontologies.
 
 ## System Requirements
 
