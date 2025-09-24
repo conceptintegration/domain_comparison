@@ -1,8 +1,10 @@
-# Ontology-Corpus-Comparison Topic Discovery
+# Ontology-Corpus-Comparison: Topic Discovery and Concept Mapping
 
-The methodology measures the semantic similarities between topics in a set of ontologies and sections (referred to as segments) of the corpus of national constitutions.
+The methodology measures the semantic similarities between topics in a set of ontologies and sections (referred to as segments) of the corpus of national constitutions. Topics that are similar to a given segment are regarded as coding the meaning of the segment. 
 
-Topics that are similar to a given segment are regarded as coding the meaning of the segment. If the set of topics similar to a segment belong to more than one ontology, then the ontologies are aligned conceptually and we have discovered a conceptual mapping between ontologies.
+If the set of topics similar to a segment belong to more than one ontology, then the ontologies are aligned conceptually and we have discovered a conceptual mapping between ontologies.
+
+One of our ontologies is a CCP ontology designed to index the sections of constitutions. If we find sections in constitutions that are not similar to any CCP topics but are similar to one or more topics from another ontology, then we may have discovered topics that can be added to the CCP ontology.
 
 ## System Requirements
 
@@ -95,7 +97,7 @@ This will populate your top-level directory with:
 
 - `data/`: Constitutions and ontology required to build the CCP data mode. A precompiled copy of the CCP data model is also downloaded (see below). 
 - `model/`: Serialized objects from text and topic processing
-- `use_ml_3/`: Multilingual sentence-level encoder
+- `use-4/`: Google's Universal Senstence Encoder version 4
 
 Depending on your machine and internet connection, this may take several minutes.
 
@@ -160,11 +162,12 @@ To resolve this issue, please see how to build your own version of the file abov
 
 ## Analysis
 
-Using Jupyter, navigate to the `analysis/` folder and open `relational_analysis.ipynb`.
+There are two Jupyter notebooks that use the ontology-corpus comparison methodology.
 
-Run the first cell to complete initialization. Once initialized, you can run other cells as needed to perform specific analyses.
-
-The notebook contains detailed documentation for each analysis step.
+1. concept_mapping.ipynb: Analyses the conceptual overlap of ontologies by finding topics from several ontologies that are similar to constitution segments.
+2. topic_discovery.ipynb: Using the CCP ontology as a reference, the notebook looks for constitution segments that are not similar to any topic in the reference ontology but are similar to topics in a selected comparison onology. Such topics may be candidates for inclusion in the reference ontology.
+ 
+The notebooks contains detailed documentation.
 
 ---
 
