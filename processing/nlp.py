@@ -2,22 +2,17 @@
 # -*- coding: utf-8 -*-
 
 __author__      = 'Roy Gardner'
-__copyright__   = 'Copyright 2022, Roy Gardner'
+__copyright__   = 'Copyright 2025, Roy Gardner and Sally Gardner'
 
 from packages import *
 
 import re
 import string
-import textract
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 
 def get_word_count(segment):
     # Word count on clean token
     return len([token for token in segment if not token.is_punct and not token.like_num])
-
-def get_polarity(segment,sentiment_analyzer):
-    return sentiment_analyzer.polarity_scores(segment)['compound']
 
 # Strategies for cleaning text - used with tagged text
 
