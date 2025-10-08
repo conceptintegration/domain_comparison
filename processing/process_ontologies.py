@@ -69,8 +69,7 @@ def process(config):
             reader = csv.reader(f)
             header = list(next(reader))
             data = [row for row in reader]
-            f.close()
-
+ 
             ontologies_dict[ont_label] = {}
             if ont_label == reference_ont_label:
                 ontologies_dict[ont_label]['reference'] = True
@@ -85,7 +84,6 @@ def process(config):
             # Get the header row
             ont_header = next(reader)
             ont_data = [row for row in reader]
-            f.close
 
         topics_dict = {}
         for i,row in enumerate(ont_data):
@@ -111,6 +109,5 @@ def process(config):
     filename = model_path + 'ontologies_dict.json'
     with open(filename, 'w') as f:
         json.dump(ontologies_dict, f)
-        f.close()
 
     print('Finished processing ontologies')

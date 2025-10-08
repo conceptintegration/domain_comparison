@@ -113,7 +113,6 @@ def process(config):
     model_filename = './error_list.json'
     with open(model_filename, 'w') as outfile:
         json.dump(error_list, outfile)
-        outfile.close() 
 
     encoded_segments = [k for k in segments_dict.keys()]
     segments_text_list = [v['text'] for _,v in segments_dict.items()]
@@ -144,18 +143,14 @@ def process(config):
     model_filename = model_path + 'segments_dict.json'
     with open(model_filename, 'w') as f:
         json.dump(segments_dict, f)
-        f.close()
     model_filename = model_path + 'segment_encodings.json'
     with open(model_filename, 'w') as f:
         json.dump(segment_encodings, f)
-        f.close()
     model_filename = model_path + 'encoded_segments.json'
     with open(model_filename, 'w') as f:
         json.dump(encoded_segments, f)
-        f.close()
     model_filename = model_path + 'sat_segments_dict.json'
     with open(model_filename, 'w') as f:
         json.dump(sat_segments_dict, f)
-        f.close()
     print('Finished processing constitutions')
 
