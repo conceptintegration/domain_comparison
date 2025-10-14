@@ -19,7 +19,7 @@ One of our ontologies is a CCP ontology designed to index the sections of consti
 2. Open a new terminal window and run:
    ```
    conda create -n occ python=3.9.21 pip jupyter
-   conda activate sat
+   conda activate occ
    ```
 3. Clone or download this repository
 4. Navigate to the repository directory and install required packages:
