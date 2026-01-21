@@ -195,6 +195,8 @@ If you encounter issues not covered in this documentation, please file an issue 
 - The complete error message
 - Steps to reproduce the issue
 
+For any other questions or additional information, please contact Matthew Martin (mjmartin@utexas.edu).
+
 ---
 
 ## License
