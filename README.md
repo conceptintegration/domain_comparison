@@ -197,13 +197,15 @@ If you encounter issues not covered in this documentation, please file an issue 
 
 ---
 
-## License and Citation
+## License
 
-### License
+This project is licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
-This project is licensed under the [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) license.
+---
 
-For questions or additional information, please contact Roy Gardner (roybowesgardner@gmail.com) or Matthew Martin (mjmartin@utexas.edu).
+## Funding Acknowledgement
+
+This material is based upon work supported by the National Science Foundation under Grant Number 2315189. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation (NSF). The research team deeply appreciates NSF’s Accountable Institutions and Behavior program and Human Networks and Data Science program for this support.
 
 ---
 
