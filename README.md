@@ -1,10 +1,10 @@
-# Ontology-Corpus-Comparison: Topic Discovery and Concept Mapping
+# Ontology-Corpus Comparison: Topic Discovery and Concept Mapping
 
-The methodology measures the semantic similarities between topics in a set of ontologies and sections (referred to as segments) of the corpus of national constitutions. Topics that are similar to a given segment are regarded as coding the meaning of the segment. 
+The methodology measures the semantic similarities between topics in a set of ontologies and text segments in a corpus of national constitutions. Topics that are similar to a given segment are understood to represent the meaning of the text segment. 
 
-If the set of topics similar to a segment belong to more than one ontology, then the ontologies are aligned conceptually and we have discovered a conceptual mapping between ontologies.
+If the set of topics that are similar to a text segment come from more than one ontology, then the ontologies are at least partially aligned and we have discovered a conceptual mapping between ontologies.
 
-One of our ontologies is a CCP ontology designed to index the sections of constitutions. If we find sections in constitutions that are not similar to any CCP topics but are similar to one or more topics from another ontology, then we may have discovered topics that can be added to the CCP ontology.
+One of our ontologies is the Comparative Constitutions Project ontology designed to index the sections of constitutions. If we find sections in constitutions that are not similar to any CCP topics but are similar to one or more topics from another ontology, then we may have discovered topics that can be added to the CCP ontology.
 
 ## System Requirements
 
