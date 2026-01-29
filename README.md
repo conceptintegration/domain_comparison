@@ -191,7 +191,8 @@ The notebooks contains detailed documentation.
 
 ### Getting Help
 
-If you encounter issues not covered in this documentation, please file an issue on the repository with:
+If you encounter any obstacles not covered in this documentation, please [click here](https://github.com/conceptintegration/domain_comparison/issues/new) to submit an issue to the repository. A GitHub account is required. Please include the following in your submission:
+
 - Your operating system and version
 - Python version (`python --version`)
 - The complete error message
