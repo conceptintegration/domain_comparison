@@ -1,4 +1,6 @@
-# Ontology-Corpus Comparison: Topic Discovery and Concept Mapping
+# Domain Comparison Tool
+
+## Overview
 
 The methodology measures the semantic similarities between topics in a set of ontologies and text segments in a corpus of national constitutions. Topics that are similar to a given segment are understood to represent the meaning of the text segment. 
 
@@ -199,9 +201,17 @@ For any other questions or additional information, please contact Matthew Martin
 
 ---
 
-## License
+## License and Citation
+
+### License
 
 This project is licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+
+### Citation
+
+If you use the Domain Comparison Tool or this code in your research, please cite:
+
+Gardner, R., Elkins, Z., Moran, A., Cruz, A., Martin, M., & Pérez, G. (2026). Domain Comparison Tool. Comparative Constitutions Project, University of Texas at Austin.
 
 ---
 
