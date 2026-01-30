@@ -166,7 +166,7 @@ To resolve this issue, please see how to build your own version of the file abov
 
 There are two Jupyter notebooks that use the domain comparison methodology.
 
-1. concept_mapping.ipynb: Analyses the conceptual overlap of ontologies by finding topics from several ontologies that are similar to constitution segments.
+1. concept_mapping.ipynb: The notebook analyses the conceptual overlap of ontologies by finding topics from several ontologies that are similar to constitution segments.
 2. topic_discovery.ipynb: Using the CCP ontology as a reference, the notebook looks for constitution segments that are not similar to any topic in the reference ontology but are similar to topics in a selected comparison onology. Such topics may be candidates for inclusion in the reference ontology.
  
 The notebooks contains detailed documentation.
