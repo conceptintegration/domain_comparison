@@ -2,11 +2,11 @@
 
 ## Overview
 
-The methodology measures the semantic similarities between topics in a set of ontologies and text segments in a corpus of national constitutions. Topics that are similar to a given segment are understood to represent the meaning of the text segment. 
+The domain comparison tool helps researchers expand and improve the topics they track in a corpus. It does so by drawing topics from multiple ontologies—potentially representing multiple domains—and identifying these topics in the corpus under study.
 
-If the set of topics that are similar to a text segment come from more than one ontology, then the ontologies are at least partially aligned and we have discovered a conceptual mapping between ontologies.
+This allows researchers to assess, for example: What is the conceptual overlap between two ontologies? Which parts of a corpus include topics that are not captured by its current ontology? Which topics in new ontologies could capture the meaning of that text? Do topics in new ontologies capture more nuances of an existing topic?
 
-One of our ontologies is the Comparative Constitutions Project ontology designed to index the sections of constitutions. If we find sections in constitutions that are not similar to any CCP topics but are similar to one or more topics from another ontology, then we may have discovered topics that can be added to the CCP ontology.
+The methodology measures the semantic similarities between topics in a set of ontologies and text segments in a corpus of national constitutions. Topics that are similar to a given segment are understood to represent the meaning of the text segment. If the set of topics that are similar to a text segment come from more than one ontology, then the ontologies are at least partially aligned and we have discovered a conceptual mapping between ontologies. If we find text segments that are not similar to any topics in the referent ontology but are similar to topics from another ontology, then we may have discovered topics that can be added to the referent ontology.
 
 ## System Requirements
 
@@ -164,7 +164,7 @@ To resolve this issue, please see how to build your own version of the file abov
 
 ## Analysis
 
-There are two Jupyter notebooks that use the ontology-corpus comparison methodology.
+There are two Jupyter notebooks that use the domain comparison methodology.
 
 1. concept_mapping.ipynb: Analyses the conceptual overlap of ontologies by finding topics from several ontologies that are similar to constitution segments.
 2. topic_discovery.ipynb: Using the CCP ontology as a reference, the notebook looks for constitution segments that are not similar to any topic in the reference ontology but are similar to topics in a selected comparison onology. Such topics may be candidates for inclusion in the reference ontology.
