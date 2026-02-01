@@ -4,9 +4,9 @@
 
 The domain comparison tool helps researchers expand and improve the topics they track in a corpus. It does so by drawing topics from multiple ontologies—potentially representing multiple domains—and identifying these topics in the corpus under study.
 
-This allows researchers to assess, for example: What is the conceptual overlap between two ontologies? Which parts of a corpus include topics that are not captured by its current ontology? Which topics in new ontologies could capture the meaning of that text? Do topics in new ontologies capture more nuances of an existing topic?
+This allows researchers to assess, for example: What is the conceptual overlap between two ontologies? Which parts of a corpus include topics that are not captured by its current (referent) ontology? Which topics in new ontologies could capture the meaning of that text? Do topics in new ontologies capture more nuances of an existing topic?
 
-The methodology measures the semantic similarities between topics in a set of ontologies and text segments in a corpus of national constitutions. Topics that are similar to a given segment are understood to represent the meaning of the text segment. If the set of topics that are similar to a text segment come from more than one ontology, then the ontologies are at least partially aligned and we have discovered a conceptual mapping between ontologies. If we find text segments that are not similar to any topics in the referent ontology but are similar to topics from another ontology, then we may have discovered topics that can be added to the referent ontology.
+The methodology measures the semantic similarities between topics in a set of ontologies (one of which is the referent ontology) and text segments in a corpus of national constitutions. Topics that are similar to a given segment are understood to represent the meaning of the text segment. If the set of topics that are similar to a text segment come from more than one ontology, then the ontologies are at least partially aligned and we have discovered a conceptual mapping between ontologies. If we find text segments that are not similar to any topics in the referent ontology but are similar to topics from another ontology, then we may have discovered topics that can be added to the referent ontology.
 
 ## System Requirements
 
