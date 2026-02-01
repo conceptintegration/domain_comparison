@@ -177,9 +177,9 @@ The notebooks contains detailed documentation.
 
 ### Common Issues
 
-1. **"No module named X" error**: Make sure you've installed all required packages and activated the `sat` environment
+1. **"No module named X" error**: Make sure you've installed all required packages and activated the `occ` environment
    ```
-   conda activate sat
+   conda activate occ
    pip install -r required_packages.txt
    ```
 
