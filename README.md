@@ -189,6 +189,8 @@ The notebooks contains detailed documentation.
 
 4. **Jupyter kernel dies**: Increase the memory limit for your Jupyter kernel or reduce the size of data being processed in a single cell
 
+5. **Error displaying widgets**: Shutdown the Jupyter server and run `pip install --upgrade notebook ipywidgets` in the Terminal (or equivalent command-line interface). Restart the server and try again. 
+
 ### Getting Help
 
 If you encounter any obstacles not covered in this documentation, please [click here](https://github.com/conceptintegration/domain_comparison/issues/new) to submit an issue to the repository. A GitHub account is required. Please include the following in your submission:
