@@ -474,3 +474,12 @@ use-4/saved_model.pb
 use-4/variables/variables.data-00000-of-00001
 use-4/variables/variables.index
 analysis/.ipynb_checkpoints/concept_mapping-checkpoint.ipynb
+analysis/.ipynb_checkpoints/concept_mapping_extended-checkpoint.ipynb
+analysis/_library/.ipynb_checkpoints/utilities-checkpoint.py
+analysis/_library/__pycache__/packages.cpython-312.pyc
+analysis/_library/__pycache__/utilities.cpython-312.pyc
+analysis/_library/angular_distance.so
+analysis/concept_mapping_extended.ipynb
+processing/.ipynb_checkpoints/packages-checkpoint.py
+processing/.ipynb_checkpoints/semantic-checkpoint.py
+analysis/_library/angular_distance.so
